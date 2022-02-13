@@ -43,9 +43,9 @@ class _TokenScreenState extends State<TokenScreen> {
                     FirebaseFirestore.instance.collection("user").snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   } else if (!snapshot.hasData || snapshot.data == null) {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   } else {
                     List<DocumentSnapshot> _docs = snapshot.data!.docs;
 
@@ -57,7 +57,17 @@ class _TokenScreenState extends State<TokenScreen> {
                     return ListView.builder(
                       itemCount: _users.length,
                       itemBuilder: (context, index) {
-                        return Text(_users[index].tokens?.first ?? "");
+                        return Container(
+                          padding: EdgeInsets.all(8),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(_users[index].tokens?.first ?? ""),
+                              )),
+                        );
                       },
                     );
                   }
