@@ -1,23 +1,34 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class MainView extends StatefulWidget {
+  MainView({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<MainView> createState() => _MainViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
           child: Container(
-        child: ElevatedButton(
-          child: Text("salar"),
-          onPressed: () async {},
+        child: Center(
+          child: Column(
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/notify");
+                  },
+                  child: Text("local notification")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/home");
+                  },
+                  child: Text("Anonymous user's token")),
+            ],
+          ),
         ),
       )),
     );
