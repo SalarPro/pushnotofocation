@@ -29,7 +29,7 @@ class _LocalNotifyViewState extends State<LocalNotifyView> {
 
     flutterLocalNotificationsPlugin.initialize(iniSetting,
         onSelectNotification: (payload) {
-      debugPrint(payload ?? "");
+      debugPrint("asdasadasasdasd");
     });
     _configureLocalTimeZone();
   }

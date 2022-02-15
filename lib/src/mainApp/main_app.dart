@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pushnotofocation/src/post_notification/post_notification.dart';
 
 class MainView extends StatefulWidget {
   MainView({Key? key}) : super(key: key);
@@ -27,6 +28,12 @@ class _MainViewState extends State<MainView> {
                     Navigator.pushNamed(context, "/home");
                   },
                   child: Text("Anonymous user's token")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, PostNotificationScreen.roughtName);
+                  },
+                  child: Text("post notificaoitn")),
             ],
           ),
         ),
